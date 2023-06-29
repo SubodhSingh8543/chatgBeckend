@@ -43,6 +43,7 @@
 const express = require('express');
 const axios = require('axios');
 const cors = require("cors");
+require("dotenv").config();
 const { Configuration, OpenAIApi } = require("openai");
 
 const app = express();
@@ -51,7 +52,7 @@ const port = 3000;
 app.use(express.json());
 app.use(cors());
 const configuration = new Configuration({
-    apiKey: "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",
+    apiKey: process.env.mongoAPI,
   });
   const openai = new OpenAIApi(configuration);
 
